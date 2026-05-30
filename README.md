@@ -51,8 +51,8 @@ The Avellaneda-Stoikov (AS) model (2008) serves as the foundational text for con
 
 ### Dynamic Reservation Price
 The algorithm calculates an internal fair-value estimate skewed by inventory accumulation:
-$$r(s,t) = s - q \gamma \sigma^2 (T - t)$$
-*Where $s$ is mid-price, $q$ is inventory, $\gamma$ is risk aversion, $\sigma^2$ is volatility, and $(T-t)$ is time remaining.*
+$$r(t_j) = p^m(t_j) - I(t_j) \gamma \sigma^2 (T - t_j)$$
+*Where $p^m(t_j)$ is the mid-price, $I(t_j)$ is the inventory position, $\gamma$ is risk aversion, $\sigma^2$ is volatility, and $(T-t_j)$ is time remaining.*
 
 If the algorithm accumulates a long position ($q > 0$), the negative penalty forces the reservation price downward, making sell limit orders highly competitive to rapidly liquidate inventory.
 
