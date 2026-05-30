@@ -2,6 +2,7 @@
 
 > *A rigorous engineering architecture and comparative analysis bridging the mathematical elegance of stochastic control with the non-linear pattern recognition of modern Deep Reinforcement Learning (A2C).*
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org)
 ![Python](https://img.shields.io/badge/Python-3.13-blue.svg)
 ![C++](https://img.shields.io/badge/C++-17-orange.svg)
 ![PyTorch](https://img.shields.io/badge/PyTorch-LibTorch-red.svg)
