@@ -1,0 +1,6 @@
+venv/
+.DS_Store
+__pycache__/
+*.pyc
+cpp_engine/build/
+# We might want to keep models if they are small, but let's ignore the virtual env and build artifacts.
