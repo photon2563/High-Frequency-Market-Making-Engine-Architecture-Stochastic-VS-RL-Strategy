@@ -51,13 +51,16 @@ The Avellaneda-Stoikov (AS) model (2008) serves as the foundational text for con
 
 ### Dynamic Reservation Price
 The algorithm calculates an internal fair-value estimate skewed by inventory accumulation:
+
 $$r(t_j) = p^m(t_j) - I(t_j) \gamma \sigma^2 (T - t_j)$$
+
 *Where $p^m(t_j)$ is the mid-price, $I(t_j)$ is the inventory position, $\gamma$ is risk aversion, $\sigma^2$ is volatility, and $(T-t_j)$ is time remaining.*
 
 If the algorithm accumulates a long position ($q > 0$), the negative penalty forces the reservation price downward, making sell limit orders highly competitive to rapidly liquidate inventory.
 
 ### Optimal Spread Calibration
 The exact optimal distances at which to place quotes are calculated to maximize spread capture while pricing in adverse market moves:
+
 $$\text{Spread} = \gamma \sigma^2 (T - t) + \frac{2}{\gamma} \ln \left(1 + \frac{\gamma}{k}\right)$$
 
 **Limitation:** While computationally pristine (executing in nanoseconds), the AS equations rely on rigid statistical assumptions (Brownian motion, Poisson arrivals) that are fundamentally blind to deep high-frequency telemetry such as localized order flow imbalance and cumulative notional depth.
@@ -75,7 +78,9 @@ Forcing a high-frequency market maker into discrete quoting bins destroys granul
 
 ### Engineered Reward Function & Penalty Rigor
 An improperly calibrated reward function results in "reward hacking" (e.g., directional momentum trading). To strictly enforce liquidity provision, the reward function mathematically balances gross spread capture against a **non-linear quadratic inventory penalty**:
+
 $$\text{Reward} = \text{Trading Profit} - \lambda_1 \Delta I^2 - \lambda_2 \theta$$
+
 By squaring the inventory term ($\Delta I^2$), the agent faces exponentially harsher negative rewards as its position deviates from zero, mathematically forcing it to mimic AS-style inventory skewing.
 
 ---
